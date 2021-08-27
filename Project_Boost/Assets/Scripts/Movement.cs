@@ -47,7 +47,10 @@ public class Movement : MonoBehaviour
     //creates a method that makes the object rotate
     void ApplyRotation(float rotationThisFrame)
     {
+        myRigidBody.freezeRotation = true; //freezing rotation so we can manually rotate
         //Vector3,forward makes the object rotate on the z axis
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
+        
+        myRigidBody.freezeRotation = false; //unfreezing rotation so the physics system can take over
     }
 }
