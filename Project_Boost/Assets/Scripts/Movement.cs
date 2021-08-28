@@ -7,13 +7,17 @@ public class Movement : MonoBehaviour
     //serialize field allows the numbers to be edited in unity
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rotationThrust = 1f;
+    //fetch the rigidbody component 
     Rigidbody myRigidBody;
+    //fetch the audiosource component
+    AudioSource myAudioSource;
    
     // Start is called before the first frame update
     void Start()
     {
         //getting the rigidbody component
         myRigidBody = GetComponent<Rigidbody>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,7 +32,19 @@ public class Movement : MonoBehaviour
         if(Input.GetKey(KeyCode.Space))
         {
             myRigidBody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+            //this line fixed the audio sounding wierd
+            if(!myAudioSource.isPlaying)
+            {
+                //this plays the audio
+                myAudioSource.Play();
+            }
+            
         } 
+        else
+        {
+            //this stops the audio
+            myAudioSource.Stop();
+        }
     }
 
     void ProcessRotation()
