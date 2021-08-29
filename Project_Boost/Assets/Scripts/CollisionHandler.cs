@@ -1,4 +1,5 @@
 using UnityEngine;
+ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -21,8 +22,15 @@ public class CollisionHandler : MonoBehaviour
                 break;
             //every other object that doesn't have either tags listed in the switch case
             default:
-                Debug.Log("Sorry, you blew up!");
+                ReloadLevel();
                 break;
         }
+    }
+
+    void ReloadLevel()
+    {
+        //scene index 0 which is sandbox
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
