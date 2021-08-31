@@ -10,7 +10,10 @@ public class CollisionHandler : MonoBehaviour
         {
             //if the object's tag name that's being collided is named friendly
             case "Friendly":
-                Debug.Log("This thing is friendly");
+                Debug.Log("Welcome to my SpaceX themed game");
+                Debug.Log("Use spacebar to launch your rocket");
+                Debug.Log("Use A to rotate left");
+                Debug.Log("Use D to rotate right");
                 break;
             //if the object's tag name that's being collided is named finish
             case "Finish":
