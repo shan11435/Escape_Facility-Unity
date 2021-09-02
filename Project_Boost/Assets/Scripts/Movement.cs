@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     //serialize field allows the numbers to be edited in unity
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rotationThrust = 1f;
+    [SerializeField] AudioClip mainEngine;
+    
     //fetch the rigidbody component 
     Rigidbody myRigidBody;
     //fetch the audiosource component
@@ -36,7 +38,7 @@ public class Movement : MonoBehaviour
             if(!myAudioSource.isPlaying)
             {
                 //this plays the audio
-                myAudioSource.Play();
+                myAudioSource.PlayOneShot(mainEngine);
             }
             
         } 
