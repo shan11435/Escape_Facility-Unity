@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Oscilator : MonoBehaviour
+public class Oscillator_Pause : MonoBehaviour
 {
     Vector3 startingPosition;
     [SerializeField] Vector3 movementVector;
@@ -19,17 +19,14 @@ public class Oscilator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Oscillate();
+    }
+
+    void Oscillate()
+    {
         //this block of code is responsible for the objects moving back and forth, up and down, etc.
         //continually growing over time
-        //this is what's causing the NAN bug because you can't divide by zero
         float cycles = Time.time / period;
-        //this is to fix the bug
-        //Mathf.epsilon is the tiniest decimal number because comparing it with zero may lead to problems in the future
-        if(period <= Mathf.Epsilon)
-        {
-            //this means do nothing 
-            return;
-        }
         
         //constant value of 6.283
         const float tau = Mathf.PI * 2;
