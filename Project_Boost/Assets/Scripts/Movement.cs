@@ -32,7 +32,6 @@ public class Movement : MonoBehaviour
     {
         ProcessThrust();
         ProcessRotation();
-        Debug();
     }
 
     void Debug()
@@ -99,6 +98,7 @@ public class Movement : MonoBehaviour
         if(!myAudioSource.isPlaying)
         {
             //this plays the audio
+            //this sound was taken from this link https://freesound.org/s/146770/
             myAudioSource.PlayOneShot(mainEngine);
         }
         if(!movingParticles.isPlaying)
