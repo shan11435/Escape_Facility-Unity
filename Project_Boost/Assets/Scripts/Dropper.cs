@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dropper : MonoBehaviour
 {
     // this is calling the meshrenderer component in unity
-    MeshRenderer renderer;
+    new MeshRenderer renderer;
     //this is calling the rigid body component in unity
     Rigidbody rigidBody;
     //this will allow a user to change the waittime in unity
